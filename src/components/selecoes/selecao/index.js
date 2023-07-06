@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './style.css';
+import SelectImg from '../../shared/select_img';
 
 const Selecao = () => {
     return (
@@ -10,8 +10,7 @@ const Selecao = () => {
             Para cada esporte, a Seleção Brasileira é 
             formada pela seleção de jogadores profissionais e naturalizados brasileiros, 
             geralmente a critério do técnico.</p>
-            <img class="gray-img" src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/150px-Flag_of_Brazil.svg.png'></img>
-            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/150px-Flag_of_Brazil.svg.png'></img>
+            <SelectImg/>
         </div>
     )
 }
