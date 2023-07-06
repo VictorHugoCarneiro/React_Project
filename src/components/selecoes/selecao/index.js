@@ -4,11 +4,18 @@ import SelectImg from '../../shared/select_img';
 import DescriptionLink from '../../shared/description_link';
 
 const Selecao = (props) => {
+    let title;
+    if(props.title_whit_underline){
+        title = <h4><u>{props.name}</u></h4>
+    }
+    else{
+        title = <h4>{props.name}</h4>
+    }
     return (
         <div>
-            <h4>{props.name}</h4>
+            {title}
             <DescriptionLink description={props.description} link={props.link}/>
-            <SelectImg img_url={props.img_url}/>
+            <SelectImg img_url={props.img_url} gray={props.gray}/>
             <p>{props.description}</p>
            
         </div>

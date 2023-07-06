@@ -1,12 +1,22 @@
 import React, {Fragment} from "react";
 
 const DescriptionLink = (props) => {
-    return (
-        <Fragment>
-        <p>{props.description}</p>
-        <a href={props.link}>{props.link}</a>
-        </Fragment>
-    )
+    if(props.link){
+        return (
+            <Fragment>
+            <p>{props.description}</p>
+            <a href={props.link}>{props.link}</a>
+            </Fragment>
+        )
+    }
+    else {
+        return (
+            <Fragment>
+            <p><u>{props.description}</u></p>
+            
+            </Fragment>
+        )
+    }
 }
 
 export default DescriptionLink;
