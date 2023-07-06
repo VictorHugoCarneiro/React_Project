@@ -2,10 +2,15 @@
 import React, {Fragment} from "react";
 import Selecao from "./selecao";
 
+const showMessage = () => {
+    console.log('Meu primeiro evento')
+}
+
 const Selecoes = () => {
     return (
         <Fragment>
         <h3>Lista de Seleções</h3>
+        <button onClick={showMessage}>Mostrar Mensagem</button>
         <hr/>
         <Selecao img_url="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/150px-Flag_of_Brazil.svg.png"
                 name="Brasil"
