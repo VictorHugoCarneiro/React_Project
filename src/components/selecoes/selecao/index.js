@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import SelectImg from '../../shared/select_img';
 import DescriptionLink from '../../shared/description_link';
+import Selecoes from '..';
 
 async function getTimes(id){
     let response = await fetch(`http://localhost:3000/api/${id}.json`)
@@ -9,37 +10,30 @@ async function getTimes(id){
     return data;
 }
 
-class Selecao extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            times: []
-        }
-    }
+const Selecao = (props) => {
+    const [times, setTimes] = useState([]);
 
-    componentDidMount(){
-        getTimes(this.props.id).then(data => {
-            this.setState(state => ({
-                times: data['times']
-            }))
+    useEffect(() => {
+        getTimes(props.id).then(data => {
+            setTimes(data['times'])
         })
-    }
+    }, [])
 
-    render(){
+    
         let title;
-        if(this.props.title_whit_underline)
-            title = <h4><u>{this.props.name}</u></h4>
+        if(props.title_whit_underline)
+            title = <h4><u>{props.name}</u></h4>
         else
-            title = <h4>{this.props.name}</h4> 
+            title = <h4>{props.name}</h4> 
         return (
             
             <div>
                 {title}
-                <DescriptionLink description={this.props.description} link={this.props.link}/>
-                <SelectImg img_url={this.props.img_url} gray={this.props.gray}/>
+                <DescriptionLink description={props.description} link={props.link}/>
+                <SelectImg img_url={props.img_url} gray={props.gray}/>
                 <h4>Times</h4>
                 <ul>
-                {this.state.times.map((time, index) => 
+                {times.map((time, index) => 
                     <li key={index}>{time.name}</li>
                 )}
                 </ul>                
@@ -47,6 +41,5 @@ class Selecao extends React.Component{
             </div>
         )
     }
-}
 
 export default Selecao;

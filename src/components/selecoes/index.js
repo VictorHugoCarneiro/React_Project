@@ -1,5 +1,5 @@
 
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Selecao from "./selecao";
 
 async function getSelecoes(){
@@ -8,25 +8,15 @@ async function getSelecoes(){
     return data;
 }
 
-
-//componentDidMount(){
-//    getSelecoes().then(data => {
-//        this.setState(state => ({
-//            selecoes: data['selecoes']
-//  }))
-//    })
-//}
-
 const Selecoes = () => {
-    const [selecoes, setSelecoes] = useState([
-        {
-        "id": "brasil",
-            "img_url":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/150px-Flag_of_Brazil.svg.png",
-            "name":"Brasil",
-            "description":"Seleção Brasileira é o nome que refere à equipe que representa o Brasil em um determinado esporte. Para cada esporte, a Seleção Brasileira é formada pela seleção de jogadores profissionais e naturalizados brasileiros, geralmente a critério do técnico.",
-            "link":"https://pt.wikipedia.org/wiki/Sele%C3%A7%C3%A3o_Brasileira_de_Futebol"
-        }
-    ])
+    const [selecoes, setSelecoes] = useState([])
+
+    useEffect(() => {
+        getSelecoes().then(data => {
+            setSelecoes(data['selecoes'])
+         })
+    }, [])
+
     const removeLast = () => {
         let new_selecoes = [...selecoes]
         new_selecoes.pop()
