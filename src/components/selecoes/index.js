@@ -1,6 +1,7 @@
 
 import React, { Fragment, useState, useEffect } from "react";
 import Selecao from "./selecao";
+import Form from "./form";
 
 async function getSelecoes(){
     let response = await fetch('http://localhost:3000/api/selecoes.json')
@@ -17,23 +18,15 @@ const Selecoes = () => {
          })
     }, [])
 
-    const removeLast = () => {
-        let new_selecoes = [...selecoes]
-        new_selecoes.pop()
-        setSelecoes(new_selecoes)
+    const addSelecao = (new_selecao) => {
+        setSelecoes([...selecoes, new_selecao])
     }
 
-    const duplicateLastSelecao = () => {
-        let last_selecao = selecoes[selecoes.length - 1]
-        setSelecoes([...selecoes, last_selecao]);
-    }
-
-    
         return (
             <Fragment>
                 <h3>Lista de Seleções</h3>
-                <button onClick={removeLast}>Remove Last</button>
-                <button onClick={duplicateLastSelecao}>Duplicate Last</button>
+                <hr/>
+                <Form addSelecao={addSelecao}/>
                 <hr />
                 {selecoes.map((selecao, index) =>
                 <Selecao 
