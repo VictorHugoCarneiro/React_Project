@@ -1,5 +1,5 @@
 
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Selecao from "./selecao";
 
 async function getSelecoes(){
@@ -8,46 +8,44 @@ async function getSelecoes(){
     return data;
 }
 
-class Selecoes extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            selecoes: [ ]
+//componentDidMount(){
+//    getSelecoes().then(data => {
+//        this.setState(state => ({
+//            selecoes: data['selecoes']
+//  }))
+//    })
+//}
+
+const Selecoes = () => {
+    const [selecoes, setSelecoes] = useState([
+        {
+        "id": "brasil",
+            "img_url":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/150px-Flag_of_Brazil.svg.png",
+            "name":"Brasil",
+            "description":"Seleção Brasileira é o nome que refere à equipe que representa o Brasil em um determinado esporte. Para cada esporte, a Seleção Brasileira é formada pela seleção de jogadores profissionais e naturalizados brasileiros, geralmente a critério do técnico.",
+            "link":"https://pt.wikipedia.org/wiki/Sele%C3%A7%C3%A3o_Brasileira_de_Futebol"
         }
-    }
-
-    componentDidMount(){
-        getSelecoes().then(data => {
-            this.setState(state => ({
-                selecoes: data['selecoes']
-            }))
-        })
-    }
-
-    removeLast = () => {
-        let new_selecoes = [...this.state.selecoes]
+    ])
+    const removeLast = () => {
+        let new_selecoes = [...selecoes]
         new_selecoes.pop()
-        this.setState(state => ({
-            selecoes: new_selecoes
-        }))
+        setSelecoes(new_selecoes)
     }
 
-    duplicateLastSelecao = () =>{
-        let last_selecao = this.state.selecoes[this.state.selecoes.length - 1]
-        this.setState(state => ({
-            selecoes: [...this.state.selecoes, last_selecao]
-        }))
+    const duplicateLastSelecao = () => {
+        let last_selecao = selecoes[selecoes.length - 1]
+        setSelecoes([...selecoes, last_selecao]);
     }
 
-    render() {
+    
         return (
             <Fragment>
                 <h3>Lista de Seleções</h3>
-                <button onClick={this.removeLast}>Remove Last</button>
-                <button onClick={this.duplicateLastSelecao}>Duplicate Last</button>
+                <button onClick={removeLast}>Remove Last</button>
+                <button onClick={duplicateLastSelecao}>Duplicate Last</button>
                 <hr />
-                {this.state.selecoes.map((selecao, index) =>
+                {selecoes.map((selecao, index) =>
                 <Selecao 
                     id={selecao.id}
                     img_url={selecao.img_url}
@@ -60,7 +58,6 @@ class Selecoes extends React.Component {
 
             </Fragment>
         )
-    }
 }
 
 
