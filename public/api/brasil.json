@@ -1,0 +1,16 @@
+{
+    "times": [
+        {"name": "Santos"},
+        {"name": "Flamengo"},
+        {"name": "Fluminense"},
+        {"name": "Corintians"},
+        {"name": "Cruzeiro"}
+    ],
+    "data": {
+    "id": "brasil",
+    "img_url":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/150px-Flag_of_Brazil.svg.png",
+    "name":"Brasil",
+    "description":"Seleção Brasileira é o nome que refere à equipe que representa o Brasil em um determinado esporte. Para cada esporte, a Seleção Brasileira é formada pela seleção de jogadores profissionais e naturalizados brasileiros, geralmente a critério do técnico.",
+    "link":"https://pt.wikipedia.org/wiki/Sele%C3%A7%C3%A3o_Brasileira_de_Futebol"
+    }
+}

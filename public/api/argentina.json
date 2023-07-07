@@ -1,0 +1,16 @@
+{
+    "times": [
+        {"name": "Boca Juniors"},
+        {"name": "River Plate"},
+        {"name": "Versatifild"},
+        {"name": "Belgrano"},
+        {"name": "Colón"}
+    ],
+    "data": {
+        "id": "argentina",
+        "img_url":"https://upload.wikimedia.org/wikipedia/pt/thumb/f/fc/230px-Afa_logo.svg.png/120px-230px-Afa_logo.svg.png",
+        "name":"Argentina",
+        "description":"A Seleção Argentina de Futebol representa na Associação do Futebol Argentino nas competições de futebol da CONMEBOL e FIFA. Conhecida carinhosamente como La Albiceleste, a Argentina é uma das grandes seleções de futebol do mundo, tendo conquistado três Copas do Mundo em 1978, 1986 e 2022, quinze títulos da Copa América, uma Copa das Confederações em 1992, duas Copas Finalíssima em 1993 e 2022 e duas medalhas de ouro nos Jogos Olímpicos de 2004 e de 2008. Juntamente com o Brasil e com a França, a Argentina é uma das 3 seleções nacionais a ter conquistado as 3 mais importantes competições de futebol entre seleções:",
+        "link":"https://pt.wikipedia.org/wiki/Sele%C3%A7%C3%A3o_Argentina_de_Futebol"
+    }
+}
