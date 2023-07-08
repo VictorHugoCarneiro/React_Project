@@ -1,8 +1,8 @@
-
 import React, { Fragment, useState, useEffect } from 'react';
 import SelectImg from '../../shared/select_img';
 import DescriptionLink from '../../shared/description_link';
 import Selecoes from '..';
+import Form from './form';
 
 async function getTimes(id){
     let response = await fetch(`http://localhost:3000/api/${id}.json`)
@@ -19,6 +19,9 @@ const Selecao = (props) => {
         })
     }, [])
 
+    const addTime = (new_time) => {
+        setTimes([...times, new_time])
+    }
     
         let title;
         if(props.title_whit_underline)
@@ -32,6 +35,9 @@ const Selecao = (props) => {
                 <DescriptionLink description={props.description} link={props.link}/>
                 <SelectImg img_url={props.img_url} gray={props.gray}/>
                 <h4>Times</h4>
+                <hr/>
+                <Form addTime={addTime}/>
+                <hr/>
                 <ul>
                 {times.map((time, index) => 
                     <li key={index}>{time.name}</li>
